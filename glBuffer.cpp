@@ -1,7 +1,7 @@
 #include "glBuffer.hpp"
 
-glBuffer::glBuffer(void *values, size_t size,GLenum bindTarget, GLenum usage)
-	:BIND_TARGET(bindTarget)
+glBuffer::glBuffer(void *values, size_t size,GLenum bindTarget, GLenum usage):
+	BIND_TARGET(bindTarget)
 {
 	glGenBuffers(1, &ID);
 	glBindBuffer(BIND_TARGET, ID);

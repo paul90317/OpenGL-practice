@@ -24,7 +24,7 @@ void VertexArray::Delete() {
 		buf.Delete();
 	}
 }
-VertexArray &VertexArray::AddBuffer(glBuffer buf) {
+VertexArray &VertexArray::Add(glObject buf) {
 	bufs.push_back(buf);
 	return *this;
 }

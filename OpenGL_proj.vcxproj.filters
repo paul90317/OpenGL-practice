@@ -37,6 +37,15 @@
     <Filter Include="Source Files\stb">
       <UniqueIdentifier>{5b6c0ce1-d2c1-497f-815c-c148410be194}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\assets\textures">
+      <UniqueIdentifier>{c7cd109a-2a0a-4cf8-80bf-6f43623009d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MYCLASS\obj">
+      <UniqueIdentifier>{a079eff9-245a-41d0-b280-4b47d17e1b6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MYCLASS\obj">
+      <UniqueIdentifier>{f4ba2f83-6104-445a-af94-8fba894ad5eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -60,12 +69,6 @@
     <ClCompile Include="MainYT.cpp">
       <Filter>Source Files\YT</Filter>
     </ClCompile>
-    <ClCompile Include="glBuffer.hpp">
-      <Filter>Header Files\MYCLASS</Filter>
-    </ClCompile>
-    <ClCompile Include="glBuffer.cpp">
-      <Filter>Source Files\MYCLASS</Filter>
-    </ClCompile>
     <ClCompile Include="ShaderProgram.cpp">
       <Filter>Source Files\MYCLASS</Filter>
     </ClCompile>
@@ -74,6 +77,15 @@
     </ClCompile>
     <ClCompile Include="stb_image.cpp">
       <Filter>Source Files\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="glBuffer.hpp">
+      <Filter>Header Files\MYCLASS\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="glBuffer.cpp">
+      <Filter>Source Files\MYCLASS\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="glTexture.cpp">
+      <Filter>Source Files\MYCLASS\obj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +110,12 @@
     <ClInclude Include="VertexArray.hpp">
       <Filter>Header Files\MYCLASS</Filter>
     </ClInclude>
+    <ClInclude Include="glObject.hpp">
+      <Filter>Header Files\MYCLASS\obj</Filter>
+    </ClInclude>
+    <ClInclude Include="glTexture.hpp">
+      <Filter>Header Files\MYCLASS\obj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="fragmentShader.glsl">
@@ -106,5 +124,10 @@
     <None Include="vertexShader.glsl">
       <Filter>Resource Files\Shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="pop_cat.png">
+      <Filter>Resource Files\assets\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

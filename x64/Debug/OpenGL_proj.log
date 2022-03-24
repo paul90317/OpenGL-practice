@@ -1,10 +1,25 @@
-﻿OpenGL_proj.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
-OpenGL_proj.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
-OpenGL_proj.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function main
-OpenGL_proj.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function main
-OpenGL_proj.obj : error LNK2019: unresolved external symbol glfwDestroyWindow referenced in function main
-OpenGL_proj.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
-OpenGL_proj.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
-OpenGL_proj.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function main
+﻿  EBO.cpp
+  glBuffer.cpp
+  shaderClass.cpp
+  ShaderProgram.cpp
+  glBuffer.hpp
+  stb_image.cpp
+  VAO.cpp
+c:\users\paul\source\repos\opengl_proj\vao.cpp(13): warning C4244: 'argument': conversion from 'GLsizeiptr' to 'GLsizei', possible loss of data
+  VBO.cpp
+  VertexArray.cpp
+c:\users\paul\source\repos\opengl_proj\vertexarray.cpp(8): warning C4244: 'argument': conversion from 'GLsizeiptr' to 'GLsizei', possible loss of data
+  Generating Code...
+  Main.cpp
+x64\Debug\glBuffer.obj : warning LNK4042: object specified more than once; extras ignored
+Main.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwDestroyWindow referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function main
 C:\Users\Paul\source\repos\OpenGL_proj\Libraries\lib\glfw3.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-C:\Users\Paul\source\repos\x64\Debug\OpenGL_proj.exe : fatal error LNK1120: 8 unresolved externals
+C:\Users\Paul\source\repos\x64\Debug\OpenGL_proj.exe : fatal error LNK1120: 9 unresolved externals

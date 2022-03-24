@@ -1,6 +1,7 @@
 #include "comm.hpp"
 #include "VertexArray.hpp"
 #include "ShaderProgram.hpp"
+#include "glTexture.hpp"
 #include <stb/stb_image.hpp>
 
 int main() {
@@ -15,10 +16,10 @@ int main() {
 	****/
 	GLfloat vertices[] = 
 	{ //   COORDINATES      /     COLORS            //
-		-1.0f,  1.0f, 0.0f,     0.8f, 0.3f,  0.02f, // 
-		 1.0f,  1.0f, 0.0f,     0.8f, 0.3f,  0.02f, // 
-		-1.0f, -1.0f, 0.0f,     1.0f, 0.6f,  0.32f, // 
-		 1.0f, -1.0f, 0.0f,     0.9f, 0.45f, 0.17f, // 
+		-1.0f,  1.0f, 0.0f,     0.8f, 0.3f,  0.02f,  0,1,// 
+		 1.0f,  1.0f, 0.0f,     0.8f, 0.3f,  0.02f,  1,1,// 
+		-1.0f, -1.0f, 0.0f,     1.0f, 0.6f,  0.32f,  0,0,// 
+		 1.0f, -1.0f, 0.0f,     0.9f, 0.45f, 0.17f,  1,0 // 
 	};
 	GLuint indices[] = 
 	{
@@ -47,18 +48,20 @@ int main() {
 	VAO
 		.addBuf(indices, GL_ELEMENT_ARRAY_BUFFER, GL_STATIC_DRAW)
 		.addBuf(vertices, GL_ARRAY_BUFFER, GL_STATIC_DRAW)
-		.Attrib(0, 3, GL_FLOAT, 6 * sizeof(float))
-		.Attrib(1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+		.Add(glTexture(GL_TEXTURE_2D)
+			.Parameteri(GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+			.Parameteri(GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+			.Parameteri(GL_TEXTURE_WRAP_S, GL_REPEAT)
+			.Parameteri(GL_TEXTURE_WRAP_T, GL_REPEAT)
+			.Generate("pop_cat.png"))
+		.Attrib(0, 3, GL_FLOAT, 8 * sizeof(float))
+		.Attrib(1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)))
+		.Attrib(2, 3, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 		
 
 	VAO.UnBindAll();
 	shaderProgram.Use();
 	VAO.Bind();
-
-	int widthImg, heightImg, numColCh;
-	unsigned char *bytes = stbi_load("pop_cat.png", &widthImg, &heightImg, &numColCh, 0);
-	GLuint texture;
-	glGenTextures(1, &texture);
 
 	while (!glfwWindowShouldClose(window)) {
 		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
@@ -70,7 +73,6 @@ int main() {
 
 	VAO.Delete();
 	shaderProgram.Delete();
-	glDeleteTextures(1, &texture);
 
 	glfwDestroyWindow(window);
 	glfwTerminate();
