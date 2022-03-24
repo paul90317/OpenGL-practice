@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\main">
-      <UniqueIdentifier>{0d363bd3-1199-4b13-b0de-9e9be1cca165}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\glad">
       <UniqueIdentifier>{f9b62a87-a083-4107-be56-7003955ff2f2}</UniqueIdentifier>
     </Filter>
@@ -25,45 +22,84 @@
     <Filter Include="Resource Files\assets">
       <UniqueIdentifier>{74ec99f5-95ca-4475-ac56-fc5a5c8418cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\YT">
+      <UniqueIdentifier>{ed9432c7-b1d0-490e-8d77-e35de089e9cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\YT">
+      <UniqueIdentifier>{98a27bc9-460d-4914-aae0-9af3730cd9d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MYCLASS">
+      <UniqueIdentifier>{f93cce7e-9adb-4bac-b3c7-a3cb29d3814e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MYCLASS">
+      <UniqueIdentifier>{0e18ecf6-ea3a-4fdc-b4dd-5642b8a8313b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\thirdparty">
+      <UniqueIdentifier>{529b3043-fcba-40a1-99b7-70ef88794d4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\stb">
+      <UniqueIdentifier>{5b6c0ce1-d2c1-497f-815c-c148410be194}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tri.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
     <ClCompile Include="glad.c">
       <Filter>Source Files\glad</Filter>
     </ClCompile>
-    <ClCompile Include="in_tri.cpp">
-      <Filter>Source Files\main</Filter>
+    <ClCompile Include="shaderClass.cpp">
+      <Filter>Source Files\YT</Filter>
     </ClCompile>
-    <ClCompile Include="ShaderProgram.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="EBO.cpp">
+      <Filter>Source Files\YT</Filter>
     </ClCompile>
-    <ClCompile Include="glBuffer.hpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="VAO.cpp">
+      <Filter>Source Files\YT</Filter>
     </ClCompile>
-    <ClCompile Include="VertexArray.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="VBO.cpp">
+      <Filter>Source Files\YT</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainYT.cpp">
+      <Filter>Source Files\YT</Filter>
+    </ClCompile>
+    <ClCompile Include="glBuffer.hpp">
+      <Filter>Header Files\MYCLASS</Filter>
+    </ClCompile>
     <ClCompile Include="glBuffer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\MYCLASS</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>Source Files\MYCLASS</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexArray.cpp">
+      <Filter>Source Files\MYCLASS</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>Source Files\stb</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="comm.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="all.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="EBO.hpp">
+      <Filter>Header Files\YT</Filter>
+    </ClInclude>
+    <ClInclude Include="VAO.hpp">
+      <Filter>Header Files\YT</Filter>
+    </ClInclude>
+    <ClInclude Include="VBO.hpp">
+      <Filter>Header Files\YT</Filter>
+    </ClInclude>
+    <ClInclude Include="shaderClass.h">
+      <Filter>Header Files\YT</Filter>
     </ClInclude>
     <ClInclude Include="ShaderProgram.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\MYCLASS</Filter>
     </ClInclude>
     <ClInclude Include="VertexArray.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\MYCLASS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

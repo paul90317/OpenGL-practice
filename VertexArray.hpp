@@ -14,7 +14,7 @@ private:
 	std::vector<glBuffer> bufs;
 public:
 	VertexArray();
-	void Attrib(GLuint, GLuint, GLenum, GLsizei);
+	VertexArray &Attrib(GLuint layout, GLuint numComponents, GLenum dataType, GLsizeiptr stride,void* offset=0);
 	VertexArray &AddBuffer(glBuffer buf);
 	void UnBindAll();
 	void Bind();

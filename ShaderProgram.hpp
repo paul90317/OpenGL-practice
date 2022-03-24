@@ -11,9 +11,9 @@ public:
 	void Delete();
 	ShaderProgram& AttachShader(const char*,GLenum);
 	void Link();
+	GLuint ID;
 private:
 	std::vector<GLuint> shaders;
-	GLuint ID;
 };
 
 #endif

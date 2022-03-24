@@ -157,19 +157,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EBO.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="glBuffer.cpp" />
-    <ClCompile Include="in_tri.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainYT.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shaderClass.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
-    <ClCompile Include="tri.cpp" />
     <ClCompile Include="glBuffer.hpp" />
+    <ClCompile Include="Main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp" />
+    <ClCompile Include="VAO.cpp" />
+    <ClCompile Include="VBO.cpp" />
     <ClCompile Include="VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="comm.hpp" />
-    <ClInclude Include="all.hpp" />
+    <ClInclude Include="EBO.hpp" />
+    <ClInclude Include="shaderClass.h" />
     <ClInclude Include="ShaderProgram.hpp" />
+    <ClInclude Include="VAO.hpp" />
+    <ClInclude Include="VBO.hpp" />
     <ClInclude Include="VertexArray.hpp" />
   </ItemGroup>
   <ItemGroup>

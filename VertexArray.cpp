@@ -4,9 +4,10 @@ VertexArray::VertexArray() {
 	glGenVertexArrays(1, &ID);
 	glBindVertexArray(ID);
 }
-void VertexArray::Attrib(GLuint start, GLuint count, GLenum dataType, GLsizei stride) {
-	glVertexAttribPointer(start, count, dataType, GL_FALSE, stride, NULL);
-	glEnableVertexAttribArray(0);
+VertexArray &VertexArray::Attrib(GLuint layout, GLuint numComponents, GLenum dataType, GLsizeiptr stride,void* offset) {
+	glVertexAttribPointer(layout, numComponents, dataType, GL_FALSE, stride, offset);
+	glEnableVertexAttribArray(layout);
+	return *this;
 }
 void VertexArray::UnBindAll(){
 	glBindVertexArray(0);

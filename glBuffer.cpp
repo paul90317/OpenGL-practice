@@ -13,3 +13,6 @@ void glBuffer::UnBind() {
 void glBuffer::Delete() {
 	glDeleteBuffers(1, &ID);
 }
+void glBuffer::Bind() {
+	glBindBuffer(BIND_TARGET, ID);
+}

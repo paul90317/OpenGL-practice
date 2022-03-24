@@ -27,8 +27,8 @@ ShaderProgram& ShaderProgram::AttachShader(const char *filename,GLenum shaderTyp
 	const char *src = tmp.c_str();
 	glShaderSource(shader,1,&src,NULL);
 	glCompileShader(shader);
-	glAttachShader(ID, shader);
 	shaders.push_back(shader);
+	glAttachShader(ID, shader);
 	return *this;
 }
 

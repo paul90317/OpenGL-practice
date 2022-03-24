@@ -10,6 +10,7 @@ public:
 	glBuffer(void*, size_t, GLenum, GLenum);
 	void UnBind();
 	void Delete();
+	void Bind();
 };
 
 #endif // !__GL_BUFFER_H
