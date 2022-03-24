@@ -1,6 +1,7 @@
 #include "comm.hpp"
 #include "VertexArray.hpp"
 #include "ShaderProgram.hpp"
+#include <stb/stb_image.hpp>
 
 int main() {
 	glfwInit();
@@ -9,24 +10,20 @@ int main() {
 	glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
 
 	/****
-	*    2
-	*	3 5
-	*  0 4 1
-	**/
+	* 0  1
+	* 2  3
+	****/
 	GLfloat vertices[] = 
-	{ //               COORDINATES                  /     COLORS           //
-		-0.5f, -0.5f * float(sqrt(3)) * 1 / 3, 0.0f,     0.8f, 0.3f,  0.02f, // Lower left corner
-		0.5f, -0.5f * float(sqrt(3)) * 1 / 3, 0.0f,     0.8f, 0.3f,  0.02f, // Lower right corner
-		0.0f,  0.5f * float(sqrt(3)) * 2 / 3, 0.0f,     1.0f, 0.6f,  0.32f, // Upper corner
-		-0.25f, 0.5f * float(sqrt(3)) * 1 / 6, 0.0f,     0.9f, 0.45f, 0.17f, // Inner left
-		0.25f, 0.5f * float(sqrt(3)) * 1 / 6, 0.0f,     0.9f, 0.45f, 0.17f, // Inner right
-		0.0f, -0.5f * float(sqrt(3)) * 1 / 3, 0.0f,     0.8f, 0.3f,  0.02f  // Inner down
+	{ //   COORDINATES      /     COLORS            //
+		-1.0f,  1.0f, 0.0f,     0.8f, 0.3f,  0.02f, // 
+		 1.0f,  1.0f, 0.0f,     0.8f, 0.3f,  0.02f, // 
+		-1.0f, -1.0f, 0.0f,     1.0f, 0.6f,  0.32f, // 
+		 1.0f, -1.0f, 0.0f,     0.9f, 0.45f, 0.17f, // 
 	};
 	GLuint indices[] = 
 	{
-		0, 3, 5, // Lower left triangle
-		3, 2, 4, // Lower right triangle
-		5, 4, 1 // Upper triangle
+		0, 1, 3, // 
+		0, 2, 3, // 
 	};
 
 	GLFWwindow* window = glfwCreateWindow(800, 800, "Hello Window", NULL, NULL);
@@ -58,6 +55,11 @@ int main() {
 	shaderProgram.Use();
 	VAO.Bind();
 
+	int widthImg, heightImg, numColCh;
+	unsigned char *bytes = stbi_load("pop_cat.png", &widthImg, &heightImg, &numColCh, 0);
+	GLuint texture;
+	glGenTextures(1, &texture);
+
 	while (!glfwWindowShouldClose(window)) {
 		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -68,6 +70,7 @@ int main() {
 
 	VAO.Delete();
 	shaderProgram.Delete();
+	glDeleteTextures(1, &texture);
 
 	glfwDestroyWindow(window);
 	glfwTerminate();

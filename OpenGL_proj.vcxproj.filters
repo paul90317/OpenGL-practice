@@ -34,9 +34,6 @@
     <Filter Include="Source Files\MYCLASS">
       <UniqueIdentifier>{0e18ecf6-ea3a-4fdc-b4dd-5642b8a8313b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\thirdparty">
-      <UniqueIdentifier>{529b3043-fcba-40a1-99b7-70ef88794d4f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\stb">
       <UniqueIdentifier>{5b6c0ce1-d2c1-497f-815c-c148410be194}</UniqueIdentifier>
     </Filter>
