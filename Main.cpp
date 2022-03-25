@@ -16,16 +16,22 @@ int main() {
 	* 2  3
 	****/
 	GLfloat vertices[] = 
-	{ //   COORDINATES      /     COLORS            //
-		-0.5f,  0.5f, 0.0f,     0.8f, 0.3f, 0.02f,		0.0f,1.0f,// 
-		 0.5f,  0.5f, 0.0f,     0.8f, 0.3f, 0.02f,		1.0f,1.0f,// 
-		-0.5f, -0.5f, 0.0f,     1.0f, 0.6f, 0.32f,		0.0f,0.0f,// 
-		 0.5f, -0.5f, 0.0f,     0.9f, 0.45f, 0.17f,		1.0f,0.0f // 
+	{ //     COORDINATES     /        COLORS        /   TexCoord  //
+		-0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
+		-0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	5.0f, 0.0f,
+		 0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
+		 0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f,	5.0f, 0.0f,
+		 0.0f, 0.8f,  0.0f,     0.92f, 0.86f, 0.76f,	2.5f, 5.0f
 	};
 	GLuint indices[] = 
 	{
-		0, 1, 3, // 
-		0, 2, 3, // 
+		0, 1, 4,
+		1, 2, 4,
+		0, 1, 2,
+		0, 2, 3,
+		
+		2, 3, 4,
+		3, 0, 4
 	};
 
 	GLFWwindow* window = glfwCreateWindow(width, height, "Hello Window", NULL, NULL);
@@ -43,7 +49,8 @@ int main() {
 	glm::mat4 view = glm::mat4(1.0f);
 	glm::mat4 proj = glm::mat4(1.0f);
 	view = glm::translate(view, glm::vec3(0.0f, -0.5f, -2.0f));
-	proj = glm::perspective(glm::radians(4000.0f), (float)(width/height), 0.1f, 100.0f);
+	proj = glm::perspective(45.0f, (float)(width/height), 0.1f, 100.0f);
+	
 
 	ShaderProgram shaderProgram;
 	shaderProgram
@@ -70,15 +77,26 @@ int main() {
 		.Attrib(2, 3, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 		
 
-	VAO.UnBindAll();
+	//VAO.UnBindAll();
 	VAO.Bind();
+	glEnable(GL_DEPTH_TEST);
 
+	double prevTime = glfwGetTime();
 	while (!glfwWindowShouldClose(window)) {
-		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		double crntTime = glfwGetTime();
+		if (crntTime - prevTime > 0.01f) {
+			glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			model = glm::rotate(model, glm::radians((float)(50.0f)), glm::vec3(0.0f, 1.0f, 0.0f));
 
-		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, NULL);
-		glfwSwapBuffers(window);
+			shaderProgram
+				.UniformMatrix4fv("model", glm::value_ptr(model));
+
+			glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(int), GL_UNSIGNED_INT, NULL);
+			glfwSwapBuffers(window);
+			prevTime = crntTime;
+		}
+		
 		glfwPollEvents();
 	}
 
