@@ -38,3 +38,4 @@ glTexture & glTexture::Parameteri(GLenum key, GLenum value)
 	glTexParameteri(BIND_TARGET, key, value);
 	return *this;
 }
+

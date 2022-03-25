@@ -7,10 +7,12 @@
 class ShaderProgram{
 public:
 	ShaderProgram();
-	void Use();
+	ShaderProgram& Use();
 	void Delete();
 	ShaderProgram& AttachShader(const char*,GLenum);
-	void Link();
+	ShaderProgram& Uniform1i(const char* key, GLuint value);
+	ShaderProgram& UniformMatrix4fv(const char* key, GLfloat *value);
+	ShaderProgram& Link();
 	GLuint ID;
 private:
 	std::vector<GLuint> shaders;

@@ -1,5 +1,6 @@
 #include <fstream>
 #include <string>
+#include "comm.hpp"
 #include "ShaderProgram.hpp"
 
 static std::string get_file_contents(const char* filename) {
@@ -32,17 +33,34 @@ ShaderProgram& ShaderProgram::AttachShader(const char *filename,GLenum shaderTyp
 	return *this;
 }
 
-void ShaderProgram::Link() {
+ShaderProgram& ShaderProgram::Link() {
 	glLinkProgram(ID);
 	for (auto shader : shaders) {
 		glDeleteShader(shader);
 	}
+	return *this;
 }
 
-void ShaderProgram::Use() {
+ShaderProgram& ShaderProgram::Use() {
 	glUseProgram(ID);
+	return *this;
 }
 
 void ShaderProgram::Delete() {
 	glDeleteProgram(ID);
+}
+
+ShaderProgram& ShaderProgram::Uniform1i(const char* key, GLuint value)
+{
+	// Gets the location of the uniform
+	GLuint uni = glGetUniformLocation(ID, key);
+	glUniform1i(uni, value);
+	return *this;
+}
+
+ShaderProgram & ShaderProgram::UniformMatrix4fv(const char * key, GLfloat * value)
+{
+	GLuint uni = glGetUniformLocation(ID, key);
+	glUniformMatrix4fv(uni, 1, GL_FALSE, value);
+	return *this;
 }
